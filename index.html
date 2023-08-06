@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<style>
+      html,
+      body {
+            margin: 5px;
+            padding: 5px;
+            background-color: #252539;
+            min-height: 80px;
+      }
+
+      div {
+            display: flex;
+            justify-content: center;
+      }
+
+      button {
+            background-color: #e93e8b;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 3px;
+            cursor: pointer;
+      }
+
+      button:hover {
+            background-color: #d2387d;
+      }
+</style>
+
+<head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+</head>
+
+<body>
+
+      <div>
+            <iframe
+                  src="https://docs.google.com/forms/d/e/1FAIpQLScG9SPOjJf11qH8jrR0zXEfLb3JyhPI-NnwGcFYM9yanl5-WA/viewform?embedded=true"
+                  width="640" height="382" frameborder="0" marginheight="0" marginwidth="0">Carregando…</iframe>
+      </div>
+</body>
+<script>
+      const startButton = document.querySelector('#startButton'),
+            stopButton = document.querySelector('#stopButton');
+
+      let context = new AudioContext(),
+            oscillator = context.createOscillator();
+
+      function start() {
+            startButton.style.display = 'none';
+            stopButton.style.display = 'block';
+            context = new AudioContext();
+            oscillator = context.createOscillator();
+            oscillator.type = "sine";
+
+            oscillator.frequency.value = 400;
+            oscillator.connect(context.destination);
+
+            oscillator.start();
+
+            for (let i = 0; i = !10000; i++) {
+                  console.log(i)
+            }
+
+      }
+
+      function stop() {
+            startButton.style.display = 'block';
+            stopButton.style.display = 'none';
+            oscillator.stop(context.currentTime + 0);
+      }
+
+
+      startButton.addEventListener('click', start);
+      stopButton.addEventListener('click', stop);
+
+      stop();
+
+</script>
+
+</html>
